@@ -1,0 +1,127 @@
+1. LIST///////////////////////////////////////////////
+A = ['1','cyborg','abc']
+
+A[0] = 'good'
+A = ['good','cyborg','abc']
+
+A.append('g')
+A = ['good','cyborg','abc','g']
+
+A.insert(2,'h')
+A = ['good','cyborg','h','abc','g']
+
+len(A)
+5
+
+type(A)
+list
+
+A.pop()
+A = ['good','cyborg','h','abc']
+
+A.remove('h')
+A = ['good','cyborg','abc']
+
+del(A)
+//removes A
+
+2. TUPLE//////////////////////////////////////////////
+
+B = (1,2,3)
+
+len(B)
+
+del(B)
+
+3. DICTIONARY//////////////////////////////////////////
+
+C = {'A':'apple', 'B':'ball'}
+
+'A' - key
+'apple' - value
+
+C.key()
+['A', 'B']
+
+C.values()
+['apple', 'ball']
+
+C.items()
+[('A', 'apple'), ('B', 'ball')]
+
+print(C)
+{'A': 'apple', 'B': 'ball'}
+
+print(C['A'])
+apple
+
+C['D'] = 'Dog'
+
+4. FOR LOOP////////////////////////////////////////////
+for i in range(0, 5):
+	print(i)
+
+
+for i in range(2,10,5):
+...  print(i)
+... 
+2
+7
+
+from --future --import print-function //print(i, '\n')
+
+x,y = 2,3
+
+A = list()
+A = [i*i for i in range(10)]
+
+5. INPUT////////////////////////////////////////////////
+A = input()
+
+6. STRING FORMAT////////////////////////////////////////
+"{0} * {1} = {2}".format(i, n, i * n)
+
+7. FUNCTION/////////////////////////////////////////////
+def add(a, b):
+	c = a + b
+	return c
+
+7. PASS, CONTINUE, BREAK////////////////////////////////
+pass for callback functions like event listeners/handlers
+
+if (i in str) // to check whether a char exist in a string
+
+8. LIST SLICING
+//str = PINEAPPLE
+print(str[4:9]) 
+print(str[:])
+print(str[::-1])
+
+9. LIST SPLITTING
+a = int(input().split(","))
+
+
+QUESTIONS//////////////////////////////////////////////////
+1. n = no of instructions
+FORWARD a
+BACKWARD b
+LEFT c
+RIGHT d
+
+calculate disp from origin
+
+2.in a string
+print A - 1
+	B - 2
+	C - 0 // no print of c
+	' ' - x
+
+3.input name, age option for sort by age or name
+
+4.dec, bin, hex conversion
+input base like 2: 1110011 -> dec hex output
+
+5.RAM is a good boy
+  mar si a doog yob
+
+
