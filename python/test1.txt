@@ -68,7 +68,7 @@ for i in range(2,10,5):
 2
 7
 
-from --future --import print-function //print(i, '\n')
+from __future__ import print_function //print(i, '\n')
 
 x,y = 2,3
 
