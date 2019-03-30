@@ -124,4 +124,10 @@ input base like 2: 1110011 -> dec hex output
 5.RAM is a good boy
   mar si a doog yob
 
+/////////////////////////////////////////////////////////////////////
+types of variables
+instance var
+class var
 
+class Animal:
+	
