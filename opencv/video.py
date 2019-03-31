@@ -21,13 +21,13 @@ while True:
     delta_frame = cv.absdiff(first_frame, gray)
     thresh_delta = cv.threshold(delta_frame, 30, 255, cv.THRESH_BINARY)[1]
     thresh_delta = cv.dilate(thresh_delta, None, iterations=0)
-    (_,cnts,_) = cv.findContours(thresh_delta.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+#    (_,cnts,_) = cv.findContours(thresh_delta.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
-    for contour in cnts:
-        if cv.ContourArea(contour) < 1000:
-            continue
-        (x, y, w, h) = cv.boundingRect(contour)
-        cv.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 3)
+#    for contour in cnts:
+#        if cv.ContourArea(contour) < 1000:
+#            continue
+#        (x, y, w, h) = cv.boundingRect(contour)
+#        cv.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 3)
     
 
     cv.imshow("frame", frame)
