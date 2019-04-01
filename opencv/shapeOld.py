@@ -7,25 +7,18 @@ video = cv.VideoCapture(0)
 ptsX = list()
 ptsY = list()
 
-#blueLow = np.array([30,86,40])
-#blueUpp = np.array([121,255,255])
+blueLow = np.array([30,86,40])
+blueUpp = np.array([121,255,255])
 
-blueLow = np.array([110,50,50])
-blueUpp = np.array([130,255,255])
-
-greenLow = np.array([50, 100, 100])
-greenUpp = np.array([70, 255, 255])
-
-redLow = np.array([0, 100, 100])
-redUpp = np.array([20, 255, 255])
-
-#redLow = np.array([40, 86, 30])
-#redUpp = np.array([255, 255, 121])
+blueLow = np.array([40, 86, 30])
+blueUpp = np.array([255, 255, 121])
 
 while True:
     check, frame = video.read()
     blur = cv.GaussianBlur(frame, (11,11), 0)
-    hsv = cv.cvtColor(blur, cv.COLOR_BGR2HSV)    
+    hsv = cv.cvtColor(blur, cv.COLOR_BGR2HSV)
+    
+    
 
     mask = cv.inRange(hsv, blueLow, blueUpp)
     mask = cv.erode(mask, None, iterations = 2)
@@ -47,6 +40,13 @@ while True:
             cv.circle(frame, (int(x), int(y)), int(radius), (0, 255, 255), 2)
             ptsX.append(x)
             ptsY.append(y)
+
+    #contour_sizes = [(cv.contourArea(contour), contour) for contour in contours]
+    #biggest_contours = max(contour_sizes, key=lambda x: x[0])[1]
+    
+    #x, y, w, h = cv.boundingRect(biggest_contours)
+    #cv.rectangle(frame, (x,y), (x + w, y + h), (0, 255, 0), 2)
+    #cv.drawContours(frame, biggest_contours, -1, (0, 255, 0), 3)
 
     for i in range(1, len(ptsX)):
         cv.line(frame, (ptsX[i - 1], ptsY[i - 1]), (ptsX[i], ptsY[i]), (0, 0, 255), 5)
