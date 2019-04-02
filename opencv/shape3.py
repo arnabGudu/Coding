@@ -37,14 +37,16 @@ while True:
 	    y = int(M["m01"] / M["m00"])
 
 	    if radius > 20:
-                color = [(0, 255, 255), (255, 0, 255)]
-	        cv.circle(frame, (int(x), int(y)), int(radius), color[i], 2)
+                color = [(0, 255, 255), (255, 255, 0)]
+	        cv.circle(frame, (x, y), int(radius), color[i], 2)
 	        ptsX[i].append(x)
 	        ptsY[i].append(y)
 
 	    for j in range(1, len(ptsX[i])):
-                color = [(0, 0, 255), (0, 255, 0)]
-                cv.line(frame, (ptsX[i][j - 1], ptsY[i][j - 1]), (ptsX[i][j], ptsY[i][j]), color[i], 5)
+                thickness = 5
+                print (j + 5) / len(ptsX[i])
+                color = [(0, 0, 255), (255, 0, 0)]
+                cv.line(frame, (ptsX[i][j - 1], ptsY[i][j - 1]), (ptsX[i][j], ptsY[i][j]), color[i], thickness)
 	
 	cv.imshow("capture", frame)
     	#cv.imshow("hsv", hsv)
