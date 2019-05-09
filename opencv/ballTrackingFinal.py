@@ -1,4 +1,4 @@
-import cv2 as cv
+import /usr/local/lib/python2.7/dist-packages/cv2 as cv
 import numpy as np
 
 
