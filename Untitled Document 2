@@ -1,0 +1,17 @@
+	std::vector< std::vector< Point > > contours;	
+	findContours(canny(r), contours, RETR_TREE, CHAIN_APPROX_SIMPLE);
+	
+	std::vector<Moments>mu(contours.size());
+	std::vector<Point2f>mc(contours.size());
+	
+	for (int i = 0; i < contours.size(); i++)
+	{
+		mu[i] = moments(contours[i], false);
+		mc[i] = Point2f(mu[i].m10/mu[i].m00, mu[i].m01/mu[i].m00);
+	}
+
+	for (int i = 0; i < contours.size(); i++)
+	{
+		drawContours(src(r), contours, i, Scalar(0,0,255), 2);
+		circle(src(r), mc[i], 4, Scalar(255, 0, 0), 2);		
+	}	

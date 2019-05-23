@@ -1,0 +1,30 @@
+std::vector<Vec4i> lines;
+	HoughLinesP(canny, lines, 1, CV_PI/180, thr, minH, maxH);
+	
+	if (lines.size() > 0)
+	{
+		Vec4i max = lines[0];
+
+		for (size_t i = 1; i < lines.size(); i++)
+		{
+			Vec4i l = lines[i];
+			if (l[0] > 200 && l[0] < 447 && l[1] > 200)
+			{
+				max = l;
+			}
+		}
+			
+		//line(src, Point(max[0], max[1]), Point(max[2], max[3]), Scalar(0,0,255), 3, CV_AA);
+	
+		//float angle = atan((float)(max[2]-max[0])/(float)(max[1]-max[3]));
+
+		//int side = (max[0] - 323) * 10;
+		//std::cout<<angle<<" "<<side<<std::endl;
+		
+		std_msgs::Int32 error;
+
+		pub.publish(error);
+
+		circle(src, Point(max[0], max[1]), 4, Scalar(255,0,0), 3, 1); 
+		circle(src, Point(323, max[1]), 4, Scalar(255,0,0), 3, 1);
+	}
